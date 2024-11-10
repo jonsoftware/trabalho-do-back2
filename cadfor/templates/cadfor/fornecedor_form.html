@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestão de funcionarios</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+    />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f8fa;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            background-color: #343a40;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: #fff;
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        /* Estilo para o formulário de cadastro */
+        .full-width-form {
+            width: 100%;
+            border: 1px solid #000;
+            padding: 20px;
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+
+        /* Ajuste para campos de formulário ocuparem largura total */
+        .full-width-form input[type="text"],
+        .full-width-form input[type="email"],
+        .full-width-form input[type="number"],
+        .full-width-form input[type="tel"],
+        .full-width-form select,
+        .full-width-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="navbar-brand text-center mb-4" href="#">funcionarios</a>
+        <a href="{% url 'fornecedor_list' %}">Catálogo de funcionarios</a>
+        <a href="{% url 'fornecedor_create' %}">Novo funcionario</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Novo funcionario</h1>
+
+        <!-- Formulário com largura total e borda preta -->
+        <div class="full-width-form">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success mt-3">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+    ></script>
+</body>
+</html>
